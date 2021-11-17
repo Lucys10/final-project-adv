@@ -1,0 +1,38 @@
+version: '3'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  mongodb:
+    image: 'bitnami/mongodb:latest'
+    ports:
+      - 27017:27017
+    networks:
+      - app-tier
+
+  controller:
+    build:
+      context: controller
+    ports:
+      - 8080:8080
+    networks:
+      - app-tier
+    env_file:
+      - controller/var_controller.env
+    depends_on:
+      - mongodb
+
+  hashserver:
+    build:
+      context: hashserver
+    ports:
+      - 50051:50051
+    networks:
+      - app-tier
+    env_file:
+      - hashserver/var_hashserver.env
+    depends_on:
+      - controller
+

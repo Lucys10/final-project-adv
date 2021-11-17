@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "hashserver/hashserver";
+package hashservice;
+
+
+message StrList {
+    repeated string str = 1;
+}
+
+message HashList{
+    repeated string hash = 1;
+}
+
+
+service Hash {
+    rpc CalculateHash(StrList) returns (HashList);
+}

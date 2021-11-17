@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "948bc3f9-acef-4b1d-8797-860af3a9469d",
+		"name": "Hashservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/send",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"Mod1\", \"Mod2\", \"Mod3\"]"
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/send",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/check?ids=82",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"check"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "82"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
